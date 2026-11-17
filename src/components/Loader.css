@@ -1,0 +1,63 @@
+.jewelry-loader-screen {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #fdfaf5;
+}
+
+.jewelry-loader {
+  overflow: visible;
+  filter: drop-shadow(0 0 7px rgb(212 175 55 / 22%));
+}
+
+.jewelry-loader-rotation {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: jewelry-rotate 2.8s ease-in-out infinite;
+}
+
+.jewelry-loader-shimmer {
+  animation: jewelry-shimmer 2.8s ease-in-out infinite;
+}
+
+.jewelry-loader-label {
+  color: #8b7334;
+  font: 500 0.8rem/1.2 system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes jewelry-rotate {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes jewelry-shimmer {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jewelry-loader-rotation,
+  .jewelry-loader-shimmer {
+    animation: none;
+  }
+}
