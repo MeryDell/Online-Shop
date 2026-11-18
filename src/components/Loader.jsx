@@ -57,6 +57,9 @@ function JewelryLoader({ size = 80 }) {
       </svg>
       <span className="jewelry-loader-label">Loading products</span>
     </div>
+
+
+
   );
 }
 
