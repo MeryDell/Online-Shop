@@ -1,10 +1,8 @@
-import "./Loader.css";
-
 function JewelryLoader({ size = 80 }) {
   return (
-    <div className="jewelry-loader-screen" role="status" aria-label="Loading">
+    <div className="flex min-h-60 flex-col items-center justify-center gap-3 bg-[#090909]" role="status" aria-label="Loading">
       <svg
-        className="jewelry-loader"
+        className="overflow-visible filter-drop-shadow(0_0_7px_rgb(212_175_55_/_22%))"
         width={size}
         height={size}
         viewBox="0 0 100 100"
@@ -27,39 +25,15 @@ function JewelryLoader({ size = 80 }) {
           </clipPath>
         </defs>
 
-        <g className="jewelry-loader-rotation">
-          <ellipse
-            cx="50"
-            cy="56"
-            rx="29"
-            ry="17"
-            stroke="url(#jewelry-gold)"
-            strokeWidth="5"
-          />
-          <path
-            d="M43 40 50 30l7 10-7 7-7-7Z"
-            fill="#f8edc5"
-            stroke="#d4af37"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
+        <g className="origin-center transform-fill motion-safe:animate-[jewelry-rotate_2.8s_ease-in-out_infinite]">
+          <ellipse cx="50" cy="56" rx="29" ry="17" stroke="url(#jewelry-gold)" strokeWidth="5" />
+          <path d="M43 40 50 30l7 10-7 7-7-7Z" fill="#f8edc5" stroke="#d4af37" strokeWidth="2" strokeLinejoin="round" />
           <path d="m43 40 14 0M50 30v17" stroke="#d4af37" strokeWidth="1" />
-          <rect
-            className="jewelry-loader-shimmer"
-            x="-70"
-            y="20"
-            width="35"
-            height="75"
-            fill="url(#jewelry-shimmer)"
-            clipPath="url(#jewelry-ring-clip)"
-          />
+          <rect className="motion-safe:animate-[jewelry-shimmer_2.8s_ease-in-out_infinite]" x="-70" y="20" width="35" height="75" fill="url(#jewelry-shimmer)" clipPath="url(#jewelry-ring-clip)" />
         </g>
       </svg>
-      <span className="jewelry-loader-label">Loading products</span>
+      <span className="text-xs font-medium uppercase tracking-wider text-[#c8ae8d]">Loading products</span>
     </div>
-
-
-
   );
 }
 
