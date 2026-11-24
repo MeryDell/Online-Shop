@@ -1,33 +1,18 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero"
-import ProductList from "./components/ProductList";
-import Footer from "./components/Footer";
-import ContactForm from "./components/ContactForm";
+import { Routes, Route } from "react-router";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
-  const [cart, setCart] = useState([]);
-
-  function addToCart(product) {
-    setCart(prevCart => [
-      ...prevCart,
-      product
-    ]);
-  }
-
   return (
-    <div className="min-h-screen bg-[#090909] text-white">
-      <Header cartCount={cart.length} />
+    <div className="min-h-screen bg-gray-50">
 
       <main>
-        <Hero />
-        <ProductList 
-        onAddToCart={addToCart}
-        />
-        <ContactForm/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </main>
-
-      <Footer />
     </div>
   );
 }

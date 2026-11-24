@@ -1,10 +1,12 @@
 import ProductCard from "./ProductCard";
-import { products } from "../data/products";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../api/productsApi";
 import JewelryLoader from "./Loader";
 
 function ProductList({ onAddToCart }) {
+
+    const [productsData, setProductsData] = useState([])
+    const [isloading, setIsloading] = useState(true)
 
     useEffect(() => {
         async function loadProductds() {
@@ -14,7 +16,7 @@ function ProductList({ onAddToCart }) {
             const data = await fetchProducts();
 
             setProductsData(data);
-        } catch (err) {
+        } catch {
             console.log("error");
         } finally {
             setIsloading(false);
@@ -23,8 +25,7 @@ function ProductList({ onAddToCart }) {
     loadProductds();
     }, []);
 
-    const [productsData, setProductsData] = useState([])
-    const [isloading, setIsloading] = useState(true)
+    
 
     if (isloading) {
         return(

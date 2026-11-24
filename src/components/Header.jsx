@@ -2,11 +2,21 @@ function Header({ cartCount }) {
   const links = [
     {
       label: "Home",
-      href: "#home",
+      href: "/",
       icon: (
         <>
           <path d="m3 10 9-7 9 7" />
           <path d="M5 9v11h14V9M9 20v-7h6v7" />
+        </>
+      ),
+    },
+    {
+      label: "About Us",
+      href: "/about",
+      icon: (
+        <>
+          <circle cx="12" cy="8" r="4" />
+          <path d="M5 21a7 7 0 0 1 14 0" />
         </>
       ),
     },
@@ -23,16 +33,6 @@ function Header({ cartCount }) {
       ),
     },
     {
-      label: "About Us",
-      href: "#about",
-      icon: (
-        <>
-          <circle cx="12" cy="8" r="4" />
-          <path d="M5 21a7 7 0 0 1 14 0" />
-        </>
-      ),
-    },
-    {
       label: "Shopping Bag",
       href: "#products",
       icon: (
@@ -42,16 +42,6 @@ function Header({ cartCount }) {
         </>
       ),
       badge: cartCount,
-    },
-    {
-      label: "Checkout",
-      href: "#checkout",
-      icon: (
-        <>
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <path d="M3 10h18M7 15h4" />
-        </>
-      ),
     },
     {
       label: "Login / Register",
@@ -77,26 +67,31 @@ function Header({ cartCount }) {
           className="flex items-center gap-0.5 text-[#d9cbbb]/70 sm:gap-2"
         >
           {links.map(({ label, href, icon, badge }) => {
+            const isButton =
+              label === "Collections" || label === "Shopping Bag";
+
             const content = (
               <>
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4.25 w-4.25 sm:h-4.5 sm:w-4.5"
-                >
-                  {icon}
-                </svg>
+                <span className="relative flex h-7 w-7 items-center justify-center rounded-full transition group-hover:bg-white/10 group-hover:text-[#eadbc7] sm:h-10 sm:w-10">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4.25 w-4.25 sm:h-4.5 sm:w-4.5"
+                  >
+                    {icon}
+                  </svg>
 
-                {badge !== undefined && (
-                  <span className="absolute -right-0.5 -top-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-[#eadbc7] px-1 text-[9px] font-bold leading-none text-[#1a1012] sm:text-[10px]">
-                    {badge}
-                  </span>
-                )}
+                  {badge !== undefined && (
+                    <span className="absolute -right-0.5 -top-0.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-[#eadbc7] px-1 text-[9px] font-bold leading-none text-[#1a1012] sm:text-[10px]">
+                      {badge}
+                    </span>
+                  )}
+                </span>
 
                 <span className="pointer-events-none absolute left-1/2 top-full z-30 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-[#171314] px-2.5 py-1.5 text-[11px] text-[#eadbc7] opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">
                   {label}
@@ -105,15 +100,14 @@ function Header({ cartCount }) {
             );
 
             const className =
-              "group relative flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-white/10 hover:text-[#eadbc7] focus:outline-none focus:ring-2 focus:ring-[#a83a58] sm:h-10 sm:w-10";
+              "group relative flex min-w-7 flex-col items-center gap-1 rounded-md px-0.5 py-1 text-[#d9cbbb]/70 focus:outline-none focus:ring-2 focus:ring-[#a83a58] sm:min-w-10 sm:px-1";
 
-            if (label === "Collections" || label === "Shopping Bag") {
+            if (isButton) {
               return (
                 <button
                   key={label}
                   type="button"
                   aria-label={label}
-                  title={label}
                   className={className}
                 >
                   {content}
@@ -126,7 +120,6 @@ function Header({ cartCount }) {
                 key={label}
                 href={href}
                 aria-label={label}
-                title={label}
                 className={className}
               >
                 {content}
