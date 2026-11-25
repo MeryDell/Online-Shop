@@ -1,75 +1,59 @@
+import {  NavLink } from "react-router";
+
 function Header({ cartCount }) {
   const links = [
-    {
-      label: "Home",
-      href: "/",
-      icon: (
-        <>
-          <path d="m3 10 9-7 9 7" />
-          <path d="M5 9v11h14V9M9 20v-7h6v7" />
-        </>
-      ),
-    },
-    {
-      label: "About Us",
-      href: "/about",
-      icon: (
-        <>
-          <circle cx="12" cy="8" r="4" />
-          <path d="M5 21a7 7 0 0 1 14 0" />
-        </>
-      ),
-    },
-    {
-      label: "Collections",
-      href: "#collections",
-      icon: (
-        <>
-          <rect x="3" y="3" width="8" height="8" rx="1" />
-          <rect x="13" y="3" width="8" height="8" rx="1" />
-          <rect x="3" y="13" width="8" height="8" rx="1" />
-          <rect x="13" y="13" width="8" height="8" rx="1" />
-        </>
-      ),
-    },
-    {
-      label: "Shopping Bag",
-      href: "#products",
-      icon: (
-        <>
-          <path d="M5 8h14l1 13H4L5 8Z" />
-          <path d="M9 8a3 3 0 0 1 6 0" />
-        </>
-      ),
-      badge: cartCount,
-    },
-    {
-      label: "Login / Register",
-      href: "#loginRegister",
-      icon: (
-        <>
-          <circle cx="12" cy="8" r="4" />
-          <path d="M5 21a7 7 0 0 1 14 0M19 8v6m-3-3h6" />
-        </>
-      ),
-    },
+
+{
+  label: "Shopping Bag",
+  href: "/products",
+  icon: (
+    <>
+      <path d="M5 8h14l1 13H4L5 8Z" />
+      <path d="M9 8a3 3 0 0 1 6 0" />
+    </>
+  ),
+  badge: cartCount,
+},
+
+{
+  label: "Login / Register",
+  href: "/loginRegister",
+  icon: (
+    <>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M5 21a7 7 0 0 1 14 0" />
+    </>
+  ),
+},
+
+{
+  label: "Settings",
+  href: "/Dashboard",
+  icon: (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </>
+  ),
+},
+
   ];
 
   return (
     <header className="sticky top-0 z-20 border-b border-white/10 bg-black/95 text-white shadow-lg shadow-black/10 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-1 px-4 py-4 sm:gap-6 sm:px-8">
-        <h1 className="shrink-0 font-serif text-2xl font-medium tracking-[0.08em] text-[#eadbc7] sm:text-3xl sm:tracking-[0.12em]">
-          L'OBSCUR<span className="text-[#7b1833]">.</span>
-        </h1>
+       <NavLink to="/" className="shrink-0">
+  <h1 className="font-serif text-2xl font-medium tracking-[0.08em] text-[#eadbc7] sm:text-3xl sm:tracking-[0.12em]">
+    L'OBSCUR<span className="text-[#7b1833]">.</span>
+  </h1>
+</NavLink>
 
         <nav
           aria-label="Main navigation"
           className="flex items-center gap-0.5 text-[#d9cbbb]/70 sm:gap-2"
         >
           {links.map(({ label, href, icon, badge }) => {
-            const isButton =
-              label === "Collections" || label === "Shopping Bag";
-
+           
             const content = (
               <>
                 <span className="relative flex h-7 w-7 items-center justify-center rounded-full transition group-hover:bg-white/10 group-hover:text-[#eadbc7] sm:h-10 sm:w-10">
@@ -99,31 +83,23 @@ function Header({ cartCount }) {
               </>
             );
 
+        
             const className =
-              "group relative flex min-w-7 flex-col items-center gap-1 rounded-md px-0.5 py-1 text-[#d9cbbb]/70 focus:outline-none focus:ring-2 focus:ring-[#a83a58] sm:min-w-10 sm:px-1";
-
-            if (isButton) {
-              return (
-                <button
-                  key={label}
-                  type="button"
-                  aria-label={label}
-                  className={className}
-                >
-                  {content}
-                </button>
-              );
-            }
+  "group relative flex min-w-7 flex-col items-center gap-1 rounded-md px-0.5 py-1 text-[#d9cbbb]/70 focus:outline-none focus:ring-2 focus:ring-[#a83a58] sm:min-w-10 sm:px-1";
 
             return (
-              <a
+
+              <NavLink
                 key={label}
-                href={href}
+                to={href}
                 aria-label={label}
                 className={className}
               >
                 {content}
-              </a>
+              </NavLink>
+
+
+              
             );
           })}
         </nav>
