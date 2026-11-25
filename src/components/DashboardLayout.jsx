@@ -9,8 +9,7 @@ function DashboardLayout() {
     }`;
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      
+   <div className="h-full bg-gray-100">
 
       <div className="mx-auto grid max-w-6xl gap-6 p-6 md:grid-cols-[220px_1fr]">
         <aside className="rounded-xl bg-white p-4 shadow-sm">

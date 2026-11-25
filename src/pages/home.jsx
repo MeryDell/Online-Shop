@@ -2,7 +2,6 @@ import { useOutletContext } from "react-router";
 
 import Hero from "../components/Hero";
 import ProductList from "../components/ProductList";
-import ContactForm from "../components/ContactForm";
 
 function Home() {
   const { addToCart } = useOutletContext();
@@ -12,7 +11,6 @@ function Home() {
       <main>
         <Hero />
         <ProductList onAddToCart={addToCart} />
-        <ContactForm />
       </main>
     </div>
   );
