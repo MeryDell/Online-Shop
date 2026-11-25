@@ -1,30 +1,19 @@
-import Header from "../components/Header";
+import { useOutletContext } from "react-router";
+
 import Hero from "../components/Hero";
 import ProductList from "../components/ProductList";
 import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
-import { useState } from "react";
 
 function Home() {
-    const [cart, setCart] = useState([]);
+  const { addToCart } = useOutletContext();
 
-    function addToCart(product) {
-    setCart((currentCart) => [...currentCart, product]);
-    }
-    
-    return (
+  return (
     <div className="min-h-screen bg-[#090909] text-white">
-      <Header cartCount={cart.length} />
-
       <main>
         <Hero />
-        <ProductList 
-        onAddToCart={addToCart}
-        />
-        <ContactForm/>
+        <ProductList onAddToCart={addToCart} />
+        <ContactForm />
       </main>
-
-      <Footer />
     </div>
   );
 }

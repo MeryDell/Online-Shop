@@ -5,7 +5,7 @@ function Header({ cartCount }) {
 
 {
   label: "Shopping Bag",
-  href: "/products",
+  href: "/shopping-bag",
   icon: (
     <>
       <path d="M5 8h14l1 13H4L5 8Z" />
@@ -28,7 +28,7 @@ function Header({ cartCount }) {
 
 {
   label: "Settings",
-  href: "/Dashboard",
+  href: "/dashboard",
   icon: (
     <>
       <circle cx="12" cy="12" r="3" />
