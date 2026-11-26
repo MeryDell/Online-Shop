@@ -7,7 +7,6 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import MainLayout from "./components/MainLayout";
 import LoginRegister from "./pages/LoginRegister";
-import ShoppingBag from "./pages/ShoppingBag";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/loginRegister" element={<LoginRegister />} />
-        <Route path="/shopping-bag" element={<ShoppingBag />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />

@@ -33,7 +33,7 @@ export const products = [
   },
   {
     id: 5,
-    title: "Necklace and Earrings SET",
+    title: "Necklace and Earrings ",
     price: 36.60,
     category: "Jewelry Set",
     image: "https://i.pinimg.com/736x/de/4c/31/de4c319bc6cadbad8f6efcc0617612fb.jpg",

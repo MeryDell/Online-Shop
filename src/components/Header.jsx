@@ -1,6 +1,6 @@
-import {  NavLink } from "react-router";
+import { NavLink } from "react-router";
 
-function Header({ cartCount }) {
+function Header({ cartCount, onOpenCart }) {
   const links = [
 
 {
@@ -19,20 +19,21 @@ function Header({ cartCount }) {
   label: "Login / Register",
   href: "/loginRegister",
   icon: (
-    <>
-      <circle cx="12" cy="8" r="4" />
-      <path d="M5 21a7 7 0 0 1 14 0" />
-    </>
-  ),
+  <>
+    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+    <path d="M10 17l5-5-5-5" />
+    <path d="M15 12H3" />
+  </>
+),
 },
 
 {
-  label: "Settings",
+  label: "Dashboard",
   href: "/dashboard",
   icon: (
     <>
-      <circle cx="12" cy="12" r="3" />
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      <circle cx="12" cy="8" r="4" />
+      <path d="M5 21a7 7 0 0 1 14 0" />
     </>
   ),
 },
@@ -87,20 +88,11 @@ function Header({ cartCount }) {
             const className =
   "group relative flex min-w-7 flex-col items-center gap-1 rounded-md px-0.5 py-1 text-[#d9cbbb]/70 focus:outline-none focus:ring-2 focus:ring-[#a83a58] sm:min-w-10 sm:px-1";
 
-            return (
+            if (label === "Shopping Bag") {
+              return <button key={label} type="button" onClick={onOpenCart} aria-label={label} className={className}>{content}</button>;
+            }
 
-              <NavLink
-                key={label}
-                to={href}
-                aria-label={label}
-                className={className}
-              >
-                {content}
-              </NavLink>
-
-
-              
-            );
+            return <NavLink key={label} to={href} aria-label={label} className={className}>{content}</NavLink>;
           })}
         </nav>
       </div>
