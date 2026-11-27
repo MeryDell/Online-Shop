@@ -41,6 +41,7 @@ function Header({ cartCount, onOpenCart }) {
   ];
 
   return (
+    <>
     <header className="sticky top-0 z-20 border-b border-white/10 bg-black/95 text-white shadow-lg shadow-black/10 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-1 px-4 py-4 sm:gap-6 sm:px-8">
        <NavLink to="/" className="shrink-0">
@@ -97,6 +98,7 @@ function Header({ cartCount, onOpenCart }) {
         </nav>
       </div>
     </header>
+    </>
   );
 }
 

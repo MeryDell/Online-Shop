@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "../api/productsApi";
 import JewelryLoader from "./Loader";
 
-function ProductList({ onAddToCart }) {
+// 1. Ավելացրու onProductClick-ը պրոպսերի մեջ
+function ProductList({ onAddToCart, onProductClick }) {
 
     const [productsData, setProductsData] = useState([])
     const [isloading, setIsloading] = useState(true)
@@ -56,6 +57,7 @@ function ProductList({ onAddToCart }) {
                      key={product.id} 
                      product={product} 
                      onAddToCart={onAddToCart}
+                     onProductClick={onProductClick} // 2. Փոխանցիր onProductClick-ը ProductCard-ին
                     />
                 ))}
             </div>

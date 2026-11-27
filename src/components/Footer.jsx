@@ -1,4 +1,4 @@
-const footerLinks = ["Home", "Collections", "About Us", "Shopping Bag", "Checkout", "Login / Register"];
+const footerLinks = ["Collections", "Shopping Bag", "Dashboard", "Login/Register"];
 
 function Footer() {
   return (

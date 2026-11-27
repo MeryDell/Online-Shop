@@ -8,9 +8,14 @@ import Settings from "./pages/Settings";
 import MainLayout from "./components/MainLayout";
 import LoginRegister from "./pages/LoginRegister";
 
-function App() {
+import { Snowfall } from "falling-snow/react";
+function App({on, flake, count, wind }) {
   return (
-    <Routes>
+    <>
+    
+       
+
+      <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/loginRegister" element={<LoginRegister />} />
@@ -21,6 +26,9 @@ function App() {
         </Route>
       </Route>
     </Routes>
+    <Snowfall/>
+    
+    </>
   );
 }
 
